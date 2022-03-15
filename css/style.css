@@ -1,0 +1,172 @@
+/* Satrt global Rules */
+
+:root {
+    --green-color: #31aa52;
+    --blue-color: #4086f4;
+    --yellow-color: #fbbd01;
+    --red-color: #eb4132;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Small */
+
+@media (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+}
+
+
+/* Medium */
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+
+/* Large */
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+/* End Global Rules */
+
+.section {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #eee;
+    width: fit-content;
+    height: fit-content;
+    padding: 6px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.content {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /*  */
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform-origin: center center;
+}
+
+@keyframes rotate {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.content .tr {
+    position: relative;
+    z-index: 0;
+}
+
+.tr::before,
+.tr::after {
+    content: "";
+    position: absolute;
+    width: 245px;
+    height: 245px;
+}
+
+.content .tr1::before {
+    left: 3px;
+    top: 3px;
+    background-color: var(--red-color);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+}
+
+.content .tr1::after {
+    left: 3px;
+    top: 3px;
+    background-color: var(--yellow-color);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.content .tr2::before {
+    top: 3px;
+    right: 3px;
+    background-color: var(--green-color);
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+
+.content .tr2::after {
+    top: 3px;
+    right: 3px;
+    background-color: var(--blue-color);
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+}
+
+.content .tr3::before {
+    bottom: 3px;
+    left: 3px;
+    background-color: var(--green-color);
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+}
+
+.content .tr3::after {
+    bottom: 3px;
+    left: 3px;
+    background-color: var(--blue-color);
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+
+.content .tr4::before {
+    bottom: 3px;
+    right: 3px;
+    background-color: var(--red-color);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.content .tr4::after {
+    bottom: 3px;
+    right: 3px;
+    background-color: var(--yellow-color);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+}
+
+.title {
+    position: relative;
+    width: fit-content;
+    font-size: 30px;
+    padding: 10px 20px;
+    background-color: #ddd;
+    border-radius: 50px;
+}
